@@ -14,8 +14,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if ($form == "reserva") {
         $personas = $_POST["numPersonas"];
+        $fechaHora = $_POST["datetime"];
+        $nombre = $_POST["nombreUser"];
+        $telefono = $_POST["telUser"];
 
-        $mesasController->makeReserva($personas);
+        $mesasController->makeReserva($personas, $fechaHora, $nombre, $telefono);
     }
 }
 
@@ -28,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <?php
     $objRutas->showLinks("");
     ?>
@@ -37,10 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <?php
     $objContenido->showFormReserva();
     ?>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous">
-        </script>
 
     <script>
         $(document).ready(function () {
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     type: 'POST',
                     data: formData,
                     success: function (response) {
-                        console.log("Reserva hecha con exito!");
+                        console.log("Reserva hecha con éxito!");
                     },
                     error: function (xhr, status, error) {
                         console.error('Error AJAX:', xhr.responseText);
