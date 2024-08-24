@@ -1,0 +1,11 @@
+#formReserva {
+    .div_input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        #datetime {
+            width: 200px;
+        }
+    }
+}

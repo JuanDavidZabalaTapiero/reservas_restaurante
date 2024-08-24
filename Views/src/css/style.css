@@ -1,0 +1,8 @@
+#formReserva .div_input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+#formReserva .div_input #datetime {
+  width: 200px;
+}/*# sourceMappingURL=style.css.map */
